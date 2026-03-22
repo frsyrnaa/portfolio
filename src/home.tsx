@@ -1,3 +1,9 @@
+import { Heading } from "./components/page/heading";
+
 export default function Home() {
-  return <h1>halo dunia</h1>
+  return (
+    <>
+      <Heading />
+    </>
+  )
 }
