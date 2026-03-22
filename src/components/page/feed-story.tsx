@@ -163,7 +163,7 @@ export function FeedStory() {
       {selectedStory && (
         <div
           onClick={closeStory}
-          className={`fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur transition ${
+          className={`fixed inset-0 z-50 min-h-dvh flex items-center justify-center bg-black/40 backdrop-blur transition ${
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >

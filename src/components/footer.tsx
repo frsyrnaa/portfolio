@@ -5,7 +5,7 @@ export function Footer() {
   const url = `https://github.com/${username}`;
 
   return (
-    <footer className="flex flex-col justify-center items-center gap-y-2.5 text-muted-foreground text-sm/6 text-center w-full pt-10 sm:text-base/7">
+    <footer className="flex flex-col justify-center items-center gap-y-2.5 text-muted-foreground text-sm/6 text-center w-full pt-10">
       <p>&copy; {year} Farsya Runa S. All rights reserved.</p>
 
       <div className="flex flex-col items-center gap-x-3 gap-y-1 sm:flex-row">
