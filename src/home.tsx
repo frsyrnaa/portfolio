@@ -1,3 +1,4 @@
+import { AboutSection } from "./components/page/about-section";
 import { FeedStory } from "./components/page/feed-story";
 import { Heading } from "./components/page/heading";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <>
       <Heading />
       <FeedStory />
+      <AboutSection />
     </>
   )
 }
