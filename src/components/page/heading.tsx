@@ -1,4 +1,5 @@
 import pfp from "@/assets/images/pfp.jpeg";
+import { LinkShare } from "../link-share";
 
 export function Heading() {
   return (
@@ -28,6 +29,10 @@ export function Heading() {
         <p className="text-base-foreground-300 leading-7 max-w-xl mx-auto">
           Informatics Student & Lab Assistant | ML & UI/UX | Bridging Data-Driven Logic with Intuitive Human-Centered Solutions.
         </p>
+      </div>
+
+      <div className="flex justify-center items-center gap-x-3 w-full">
+        <LinkShare />
       </div>
     </header>
   );
