@@ -1,4 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+"use client";
+
+import * as React from "react";
 
 type Theme = "dark" | "light" | "system";
 
@@ -11,14 +13,17 @@ type ThemeProviderProps = {
 type ThemeProviderState = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
+  toggleTheme: () => void;
 };
 
 const initialState: ThemeProviderState = {
   theme: "system",
   setTheme: () => null,
+  toggleTheme: () => null,
 };
 
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext =
+  React.createContext<ThemeProviderState>(initialState);
 
 function ThemeProvider({
   children,
@@ -26,18 +31,22 @@ function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
-  );
+  const [theme, setThemeState] = React.useState<Theme>(defaultTheme);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    const stored = localStorage.getItem(storageKey) as Theme | null;
+    if (stored) setThemeState(stored);
+  }, [storageKey]);
+
+  React.useEffect(() => {
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
+      const systemTheme = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches
         ? "dark"
         : "light";
 
@@ -48,19 +57,26 @@ function ThemeProvider({
     root.classList.add(theme);
   }, [theme]);
 
+  const setTheme = (theme: Theme) => {
+    localStorage.setItem(storageKey, theme);
+    setThemeState(theme);
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
+    setTheme,
+    toggleTheme,
   };
 
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeProviderContext.Provider value={value} {...props}>
       {children}
     </ThemeProviderContext.Provider>
   );
 }
 
-export { ThemeProviderContext, ThemeProvider };
+export { ThemeProvider, ThemeProviderContext };

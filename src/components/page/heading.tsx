@@ -1,6 +1,7 @@
 import pfp from "@/assets/images/pfp.jpeg";
 import { LinkShare } from "../link-share";
 import { ButtonGreeting } from "../button-greeting";
+import { ThemeToggle } from "../theme-toggle";
 
 export function Heading() {
   return (
@@ -38,6 +39,7 @@ export function Heading() {
         <div className="flex-1">
           <ButtonGreeting />
         </div>
+        <ThemeToggle />
       </div>
     </header>
   );
