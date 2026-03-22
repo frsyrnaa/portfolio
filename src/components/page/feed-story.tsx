@@ -14,7 +14,7 @@ export function FeedStory() {
   const touchStartY = useRef(0);
   const dragging = useRef(false);
 
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const STORY_DURATION = 5000;
   const SWIPE_THRESHOLD = 50;
