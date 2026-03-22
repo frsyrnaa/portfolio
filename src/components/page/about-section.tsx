@@ -1,7 +1,9 @@
+import { User } from "lucide-react";
+import { CardSection } from "../card-section";
+
 export function AboutSection() {
   return (
-    <section className="w-full bg-background space-y-4 p-6 border border-border rounded-2xl">
-      <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">Tentang Saya</h2>
+    <CardSection icon={User} title="Tentang Saya">
       <p className="leading-6 text-muted-foreground">
         Mahasiswa semester 6 Teknik Informatika di Universitas Pamulang yang
         memiliki minat pada Machine Learning dan UI/UX Design. Memiliki
@@ -12,6 +14,6 @@ export function AboutSection() {
         berbagai bidang dalam teknologi informasi, termasuk pengembangan web dan
         mobile.
       </p>
-    </section>
+    </CardSection>
   );
 }

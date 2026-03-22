@@ -1,11 +1,10 @@
+import { Layers } from "lucide-react";
+import { CardSection } from "../card-section";
 import { Separator } from "../ui/separator";
 
 export function ProjectSection() {
   return (
-    <section className="w-full bg-background space-y-4 p-6 border border-border rounded-2xl">
-      <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0">
-        Projects
-      </h2>
+    <CardSection icon={Layers} title="Projects">
       <div className="flex flex-col w-full space-y-6">
         <div>
           <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">
@@ -46,6 +45,6 @@ export function ProjectSection() {
           </ul>
         </div>
       </div>
-    </section>
+    </CardSection>
   );
 }
