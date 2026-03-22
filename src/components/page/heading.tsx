@@ -1,5 +1,6 @@
 import pfp from "@/assets/images/pfp.jpeg";
 import { LinkShare } from "../link-share";
+import { ButtonGreeting } from "../button-greeting";
 
 export function Heading() {
   return (
@@ -27,12 +28,16 @@ export function Heading() {
         </div>
 
         <p className="text-base-foreground-300 leading-7 max-w-xl mx-auto">
-          Informatics Student & Lab Assistant | ML & UI/UX | Bridging Data-Driven Logic with Intuitive Human-Centered Solutions.
+          Informatics Student & Lab Assistant | ML & UI/UX | Bridging
+          Data-Driven Logic with Intuitive Human-Centered Solutions.
         </p>
       </div>
 
       <div className="flex justify-center items-center gap-x-3 w-full">
         <LinkShare />
+        <div className="flex-1">
+          <ButtonGreeting />
+        </div>
       </div>
     </header>
   );
