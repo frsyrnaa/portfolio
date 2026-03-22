@@ -1,3 +1,4 @@
+import { Footer } from "./components/footer";
 import { AboutSection } from "./components/page/about-section";
 import { EducationSection } from "./components/page/education-section";
 import { FeedStory } from "./components/page/feed-story";
@@ -14,6 +15,7 @@ export default function Home() {
       <EducationSection />
       <ProjectSection />
       <SkillSection />
+      <Footer />
     </>
   )
 }
